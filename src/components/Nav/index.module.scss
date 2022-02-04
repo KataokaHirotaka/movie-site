@@ -26,11 +26,11 @@
     opacity: 1;
   }
   30% {
-    transform: translateY(-30px);
+    transform: translateY(-20px);
     opacity: 0;
   }
   60% {
-    transform: translateY(50px);
+    transform: translateY(30px);
     opacity: 0;
   }
   100% {
@@ -54,6 +54,7 @@
     visibility: visible;
     animation: fadeIn 0.3s ease normal;
     .nav_list_link {
+      opacity: 1;
       transform: translateY(0px);
       transition: 0.3s;
       transition-delay: 0.3s;
@@ -84,6 +85,8 @@
   padding: 5px 0;
   cursor: pointer;
   overflow: hidden;
+  transform: translateY(30px);
+  opacity: 0;
   a {
     display: inline-block;
     width: 100%;

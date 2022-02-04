@@ -2,18 +2,17 @@ import { Dispatch, SetStateAction, useCallback, useEffect } from "react";
 import styles from "src/components/form/index.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 
 type Props = {
   searchWord: string;
   setSearchWord: Dispatch<SetStateAction<string>>;
-  getData: () => Promise<void>;
+  setActive: Dispatch<SetStateAction<boolean>>;
 };
 
 export const Form = (props: Props): JSX.Element => {
   const submitHandle = useCallback((e) => {
     e.preventDefault();
-    props.getData();
+    props.setActive(true);
   }, []);
 
   const changeHandle = useCallback(
