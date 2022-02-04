@@ -8,7 +8,6 @@ export const PopularLayout = (props: LayoutProps): JSX.Element => {
     <>
       <NextSeo title={props.title} description={props.description} />
       <Header />
-      <Form />
       <div>{props.children}</div>
     </>
   );

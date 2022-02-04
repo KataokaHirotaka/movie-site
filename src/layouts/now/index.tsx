@@ -8,7 +8,6 @@ export const NowLayout = (props: LayoutProps): JSX.Element => {
     <>
       <NextSeo />
       <Header />
-      <Form />
       <div>{props.children}</div>
     </>
   );

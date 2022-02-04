@@ -1,6 +1,11 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: #333;
   padding: 10px;
+  z-index: 20;
 }
 
 .site_title {
@@ -21,16 +26,43 @@
   background: #333;
   border: none;
   cursor: pointer;
+  z-index: 15;
+  &:hover span:first-child {
+    transform: translateX(-3px);
+  }
+  &:hover span:nth-child(2) {
+    transform: translateX(3px);
+  }
+  &:hover span:last-child {
+    transform: translateX(-3px);
+  }
   span {
     display: block;
     width: 18px;
     height: 2px;
     background: #fff;
+    transition: 0.2s;
+    cursor: pointer;
     &:first-child {
       margin-bottom: 5px;
     }
     &:last-child {
       margin-top: 5px;
+    }
+  }
+  &.on {
+    span:first-child {
+      transform: translateY(7px) rotate(225deg);
+      transition: 0.3s;
+    }
+    span:nth-child(2) {
+      background: transparent;
+      transform-origin: 0% 0%;
+      transition: 0.3s;
+    }
+    span:last-child {
+      transform: translateY(-7px) rotate(-225deg);
+      transition: 0.3s;
     }
   }
 }

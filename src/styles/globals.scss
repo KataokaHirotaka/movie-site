@@ -5,6 +5,12 @@ body {
   font-family: "Avenir", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans",
     "ヒラギノ角ゴシック", YuGothic, "Yu Gothic", "メイリオ", Meiryo,
     "ＭＳ Ｐゴシック", "MS PGothic";
+  background: #f8f5f0;
+}
+
+.container {
+  height: 100vh;
+  padding-top: 70px;
 }
 
 a {

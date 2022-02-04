@@ -8,7 +8,6 @@ export const SearchLayout = (props: LayoutProps): JSX.Element => {
     <>
       <NextSeo title={props.title} description={props.description} />
       <Header />
-      <Form />
       <div className="container">{props.children}</div>
       <p>searchだよ</p>
     </>

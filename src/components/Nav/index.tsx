@@ -1,7 +1,11 @@
 import Link from "next/link";
 import styles from "src/components/Nav/index.module.scss";
 
-export const Nav = (): JSX.Element => {
+type Props = {
+  isClick: boolean;
+};
+
+export const Nav = (props: Props): JSX.Element => {
   const LINK_DATA = [
     {
       link: "/",
@@ -17,7 +21,7 @@ export const Nav = (): JSX.Element => {
     },
   ];
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${props.isClick ? styles.on : null}`}>
       <ul className={styles.nav_list}>
         {LINK_DATA.map((data) => {
           return (

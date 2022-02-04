@@ -1,17 +1,49 @@
-import { useCallback } from "react";
+import { Dispatch, SetStateAction, useCallback, useEffect } from "react";
+import styles from "src/components/form/index.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
-export const Form = (): JSX.Element => {
-  const clickHandle = useCallback(() => {}, []);
+type Props = {
+  searchWord: string;
+  setSearchWord: Dispatch<SetStateAction<string>>;
+  getData: () => Promise<void>;
+};
+
+export const Form = (props: Props): JSX.Element => {
   const submitHandle = useCallback((e) => {
     e.preventDefault();
+    props.getData();
   }, []);
+
+  const changeHandle = useCallback(
+    (e) => {
+      props.setSearchWord(e.target.value);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props.searchWord]
+  );
+
   return (
-    <form onSubmit={submitHandle} role="search">
-      <div>
-        <input type="text" />
-      </div>
-      <div className="button-wrapper">
-        <button role="button"></button>
+    <form
+      className={styles.search_container}
+      onSubmit={submitHandle}
+      role="search"
+    >
+      <input
+        type="text"
+        placeholder="映画を検索"
+        value={props.searchWord}
+        onChange={changeHandle}
+      />
+      <div
+        className={`${styles.button_wrapper} ${
+          props.searchWord.length ? null : styles.off
+        }`}
+      >
+        <button role="button">
+          <FontAwesomeIcon icon={faSearch} size="lg" color="#333" />
+        </button>
       </div>
     </form>
   );
